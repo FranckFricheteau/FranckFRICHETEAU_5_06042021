@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/orinoco.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/pages/products.js" defer></script>
+    <script src="./js/cart.utils.js" defer></script>
+
+    <title>Produits - Orinoco</title>
+</head>
+
+<body>
+    <div class="container mx-auto px-4 py-8">
+
+        <!--HEADER-->
+
+        <header class="flex justify-between items-center rounded-lg w-full bg-oniPink py-2 px-6">
+            <a href="index.html"><img class="h-20 bg-oniPink" src="./img/logo.png" alt="Orinico"></a>
+            <nav class="flex">
+                <ul class="list-none font-semibold">
+                    <li>
+                        <a class="px-4 py-4" href="./cart.html">Panier</a>
+
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!--END HEADER-->
+
+        <!--PRODUCT-->
+
+        <section class="flex flex-col items-stretch lg:flex-row mt-4 rounded-md w-full p-4 bg-oniPink">
+            <div class="w-full lg:w-1/2 md:min-w-1/2 h-full mr-4">
+                <img id="productImage" class="rounded object-cover" src="./img/teddy_1.jpg" alt="Ours en peluche">
+            </div>
+
+            <div class="flex flex-col flex-wrap items-start w-full">
+                <h1 class="w-full text-xl text-center font-bold mb-8 mt-8 lg:mt-4">Ours en peluche<span id="productName"></span></h1>
+                <div class="flex items-center">
+                    <img class="h-5" src="./img/star.svg" alt="">
+                    <img class="h-5" src="./img/star.svg" alt="">
+                    <img class="h-5" src="./img/star.svg" alt="">
+                    <img class="h-5" src="./img/star.svg" alt="">
+                    <img class="h-5" src="./img/star.svg" alt="">
+                    <p class="m1-2"><span class="underline cursor-pointer">56 Avis</span> - <span class="underline cursor-pointer">12 Produits en stock</span></p>
+                </div>
+
+                <p id="productDescription" class="text-black text-opacity-80 text-justify mt-4"></p>
+                <div class="flex-grow"></div>
+                <h2 class="text-bold font-lg font-bold mt-4">Choisir la couleur de votre produit :</h2>
+                <div id="productColors" class="grid gap-4 mt-4 w-full">
+                    <template id="productColor">
+                        <div class="h-12 sm:h-20 cursor-pointer flex-grow bg-white rounded transition duration-150 transform hover:scale-105" style="background-color: tan;"></div>
+                    </template>
+                </div>
+
+                <button id="addToCart" class="w-full bg-pink-600 text-white text-center font-bold text-lg rounded mt-4 py-2 mb transition duration-150 transform hover:scale-102">Ajouter au panier pour<span id="productPrice"></span></button>
+            </div>
+        </section>
+    </div>
+    <!--END PRODUCT-->
+
+</body>
+
+</html>
