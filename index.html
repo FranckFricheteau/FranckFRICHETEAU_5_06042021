@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/orinoco.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/config.js" defer></script>
+    <script src="./js/pages/index.js" defer></script>
+
+
+    <title>Accueil Orinoco</title>
+
+</head>
+
+<body>
+    <div class="container mx-auto px-4 py-8">
+
+        <!--HEADER-->
+        <header class="flex justify-between items-center rounded-lg w-full bg-oniPink py-2 px-6">
+
+            <a href="#"><img class="h-20 bg-oniPink" src="./img/logo.png" alt="Orinico"></a>
+            <h2 class="text-lg font-bold mb-2">Bienvenue chez Orinoco !</h2>
+
+            <nav class="flex">
+                <ul class="list-none font-semibold">
+                    <li>
+                        <a class="px-4 py-4" href="./cart.html" target="_blank">Panier</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <!--END HEADER-->
+
+        <!--PRODUCT BOX-->
+
+        <div id="productsList" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 mt-4">
+            <div class="bg-oniPink animate-pulse h-80"></div>
+            <div class="bg-oniPink animate-pulse h-80"></div>
+            <div class="bg-oniPink animate-pulse h-80"></div>
+            <div class="bg-oniPink animate-pulse h-80"></div>
+            <div class="bg-oniPink animate-pulse h-80"></div>
+
+        </div>
+        <!--END PRODUCT BOX-->
+
+    </div>
+
+    <!--TEMPLATE PRODUCT-->
+    <template id="product">
+        <li class="list-none bg-oniPink rounded-md p-4 transition duration-200 transform hover:scale-102">
+            <a id="productLink" href="#">
+                <figure>
+                    <img id="productImage" class="rounded h-64 w-full object-cover" src="" alt="">
+                    <figcaption class="pt-4">
+                        <div class="flex items-center mb-2">
+                            <h2 id="productName" class="font-bold"></h2>
+                            <div class="flex-grow"></div>
+                            <div class="flex items-center mr-4">
+                                <img class="h-5" src="./img/star.svg" alt="">
+                                <img class="h-5" src="./img/star.svg" alt="">
+                                <img class="h-5" src="./img/star.svg" alt="">
+                                <img class="h-5" src="./img/star.svg" alt="">
+                                <img class="h-5" src="./img/star.svg" alt="">
+                            </div>
+
+                            <span id="productPrice" class="text-sm font-bold bg-white px-2 py-1 rounded"></span>
+                        </div>
+                    <p id="productDescription" class="text-black text-opacity-80 text-sm text-justify"></p>
+                    </figcaption>
+                </figure>
+            </a>
+        </li>
+    </template>
+    <!--END TEMPLATE PRODUCT-->
+    <!--FOOTER-->
+    <footer class="footer displayFlex">
+        <a onclick="aboutUs()" class="footer-a" tabindex="0">A propos de nous</a>
+        <a onclick="contactUs()" class="footer-a" tabindex="0">Contactez-nous</a>
+    </footer>
+    <!--END FOOTER-->
+</body>
+
+</html>
