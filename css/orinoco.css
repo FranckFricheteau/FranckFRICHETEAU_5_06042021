@@ -43,7 +43,9 @@ Sections
 /**
 Remove the margin in all browsers.
 */
-
+html{
+  scroll-behavior:smooth
+}
 body {
   margin: 0;
 }
