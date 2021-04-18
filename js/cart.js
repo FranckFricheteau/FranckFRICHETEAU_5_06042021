@@ -1,9 +1,13 @@
-
 (async() => {
     const productsInShoppingCart = Cart.products
     if (productsInShoppingCart === null) return
     hydratePage(productsInShoppingCart)
 })()
+
+
+const products = Object.values(Cart.products).map((product) => {
+    return product._id
+})
 
 function hydratePage(productsInShoppingCart) {
     //Placer le prix total
@@ -116,13 +120,11 @@ function sendOrder() {
             address.length > 6 &&
             city.length > 1
         )) {
-        console.log("Veuillez remplir les champs correctements avant de procéder au paiement")
+        alert("Veuillez remplir les champs correctements avant de procéder au paiement")
         return
     }
 
-    const products = Object.values(Cart.products).map((product) => {
-        return product._id
-    })
+
 
     const order = {
         contact: {
