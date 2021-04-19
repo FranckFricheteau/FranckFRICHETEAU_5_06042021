@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de votre commande</title>
+    <link rel="stylesheet" href="./css/orinoco.css">
+
+    <script src="./js/config.js" defer></script>
+    <script src="./js/status.js" defer></script>
+</head>
+
+<body>
+    <div class="container mx-auto px-4 py-8">
+        <!-- HEADER -->
+        <header class="flex justify-between items-center rounded-lg w-full bg-oniPink py-2 px-6">
+            <a href="index.html"><img class="h-20 bg-oniPink" src="./img/logo.png" alt="Orinico"></a>
+            <h2 class="text-lg font-bold mb-2">Confirmation de votre commande </h2>
+            <nav class="flex">
+                <ul class="list-none font-semibold">
+                    <li>
+                        <a class="px-4 py-4" href="./cart.html">Panier</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- HEADER -->
+
+        <main class="w-full bg-oniPink rounded-lg my-4 py-16 flex justify-center flex-col">
+            <p class="text-center text-4xl font-bold mb-4">Félicitations ! Votre commande à bien été comptabilisée par notre site !</p>
+            <p class="text-center text-xl mb-4">Identifiant de votre commande : <span class="font-bold" id="commandId"></span></p>
+            <a class="inline-block uppercase text-center mx-auto bg-indigo-600 py-2 px-4 font-semibold rounded text-white" href="index.html">Retourner à l'accueil</a>
+        </main>
+    </div>
+</body>
+
+</html>
