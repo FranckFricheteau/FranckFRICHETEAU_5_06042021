@@ -1,4 +1,5 @@
-//Fonction principale, appelée automatiquement au chargement de la page
+// Fonction principale, exécutée au temps de chargement de la page
+
 (async() => {
     const productId = getProductId()
     const productData = await getProductData(productId)
@@ -19,7 +20,7 @@ function getProductData(productId) {
 }
 
 function hydratePage(product) {
-    // Hydrater la page avec des données
+    // Hydrater la page avec les données (image + nom + prix + decription + couleurs)
     document.getElementById('productImage').src = product.imageUrl
     document.getElementById('productName').textContent = product.name
     document.getElementById('productPrice').textContent = `${product.price / 100}.00 €`
@@ -28,23 +29,23 @@ function hydratePage(product) {
         'productColors'
     ).style.gridTemplateColumns = `repeat(${product.colors.length}, 1fr)`
 
-    // Ajouter event listeners sur les boutons
+    // Ajouter évènement d'écoute sur le bouton
     document.getElementById('addToCart').onclick = (event) => {
         event.preventDefault()
         Cart.addProduct(product)
         redirectToShoppingCart(product.name)
     }
 
-    // Obtenier un element parent
+    // Obtenir un element parent
     const colorsElt = document.getElementById('productColors')
 
     // Montrer toutes les couleurs
     product.colors.forEach((color) => {
-        // Obtenir et cloner le modèle pour une couleur
+        // Obtenir & cloner le template pour une couleur
         const templateElt = document.getElementById('productColor')
         const cloneElt = document.importNode(templateElt.content, true)
 
-        // Hydrater couleur du clone
+        // Hydrater la coulor du clone
         cloneElt.querySelector('div').style.backgroundColor = color
 
         // Montrer une nouvelle couleur
