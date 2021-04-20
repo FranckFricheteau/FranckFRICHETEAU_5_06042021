@@ -4,64 +4,60 @@
     hydratePage(productsInShoppingCart)
 })()
 
-
-const products = Object.values(Cart.products).map((product) => {
-    return product._id
-})
-
 function hydratePage(productsInShoppingCart) {
-    //Placer le prix total
+    // Ensemble prix total
     document.getElementById('totalPrice').textContent = Cart.getTotalPrice() + '.00€'
 
-    //boucler sur tous les produits et les afficher
+    // Boucler sur tous les produits et les afficher
     const productList = Object.values(productsInShoppingCart)
     productList.forEach((product) => {
         displayProduct(product)
     })
+
     addEventListeners()
 }
 
 function displayProduct(product) {
-    //Obtenir et cloner le template
+    // Obtenir & cloner le template
     const templateElt = document.getElementById('productTemplate')
     const cloneElt = document.importNode(templateElt.content, true)
 
-
-    //hydrater le template
+    // Hydrater le template (nom + quantité + prix + prix total)
     cloneElt.getElementById('productName').textContent = product.name
     cloneElt.getElementById('productQuantity').selectedIndex = product.quantity - 1
-    cloneElt.getElementById('productPrice').textContent = product.price / 100 + '00€'
-    cloneElt.getElementById('productTotalPrice').textContent = (product.price * product.quantity) / 100 + '.00€'
+    cloneElt.getElementById('productPrice').textContent = product.price / 100 + '.00€'
+    cloneElt.getElementById('productTotalPrice').textContent =
+        (product.price * product.quantity) / 100 + '.00€'
 
-    //Ajouter des évènements
+    // Ajouter les évènements
     cloneElt.getElementById('productQuantity').onchange = (e) => {
         e.preventDefault()
 
         Cart.updateProductQuantity(product._id, e.target.selectedIndex + 1)
 
-        //mise à jour produit prix total
-        const totalPriceElt = e.target.parentElement.parentElement.parentElement.querySelector('#productTotalPrice')
-
+        // Mettre à jour le prix total
+        const totalPriceElt = e.target.parentElement.parentElement.parentElement.querySelector(
+            '#productTotalPrice'
+        )
         const newPrice = (product.price * Cart.getProductQuantity(product._id)) / 100 + '.00€'
         totalPriceElt.textContent = newPrice
 
-        //Mettre a jour tous les produits avec le prix total
+        // Mettre à jour le prix total de tous les produits
         document.getElementById('totalPrice').textContent = Cart.getTotalPrice() + '.00€'
     }
 
-    //afficher template
-    document.getElementById('productList').prepend(cloneElt)
-
+    // Montrer le template
+    document.getElementById('productsList').prepend(cloneElt)
 }
 
 function addEventListeners() {
-    //Poursuivre sur le bouton
+    // Poursuivre sur le button
     document.getElementById('confirmPurchase').onclick = (e) => {
         e.preventDefault()
         sendOrder()
     }
 
-    //Vérifiez que les données sont valides
+    // Input de validation des champs (Prénom + Nom + mail + adresse + ville)
     watchValidity(document.getElementById('firstName'), (e) => e.target.value.length > 1)
     watchValidity(document.getElementById('lastName'), (e) => e.target.value.length > 1)
     watchValidity(document.getElementById('email'), (e) => {
@@ -69,8 +65,8 @@ function addEventListeners() {
         return emailRegex.test(e.target.value)
     })
     watchValidity(document.getElementById('address'), (e) => e.target.value.length > 6)
-    watchValidity(document.getElementById('city'), (e) => e.target.value.length > 1)
 
+    watchValidity(document.getElementById('city'), (e) => e.target.value.length > 1)
 }
 
 function watchValidity(elt, condition) {
@@ -92,7 +88,6 @@ function watchValidity(elt, condition) {
 function validInputElt(elt) {
     elt.style.border = 'solid 1px green'
     elt.style.boxShadow = '#00800066 0px 0px 4px'
-
 }
 
 function invalidInputElt(elt) {
@@ -108,9 +103,10 @@ function neutralInputElt(elt) {
 function sendOrder() {
     const firstName = document.getElementById('firstName').value
     const lastName = document.getElementById('lastName').value
-    const email = document.getElementById('email').value
     const address = document.getElementById('address').value
+    const email = document.getElementById('email').value
     const city = document.getElementById('city').value
+
     const emailRegex = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
 
     if (!(
@@ -124,7 +120,9 @@ function sendOrder() {
         return
     }
 
-
+    const products = Object.values(Cart.products).map((product) => {
+        return product._id
+    })
 
     const order = {
         contact: {
@@ -153,5 +151,4 @@ function sendOrder() {
         .catch((err) => {
             alert(err, e)
         })
-
 }
