@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/orinoco.css">
+
     <script src="./js/config.js" defer></script>
     <script src="./js/cart.product.js" defer></script>
     <script src="./js/products.js" defer></script>
@@ -20,6 +22,8 @@
 
         <header class="flex justify-between items-center rounded-lg w-full bg-oniPink py-2 px-6">
             <a href="index.html"><img class="h-20 bg-oniPink" src="./img/logo.png" alt="Orinico"></a>
+            <h2 class="text-lg font-bold mb-2">Votre produit actuellement sélectionné </h2>
+
             <nav class="flex">
                 <ul class="list-none font-semibold">
                     <li>
@@ -36,7 +40,7 @@
 
         <section class="flex flex-col items-stretch lg:flex-row mt-4 rounded-md w-full p-4 bg-oniPink">
             <div class="w-full lg:w-1/2 md:min-w-1/2 h-full mr-4">
-                <img id="productImage" class="rounded object-cover" src="" alt="">
+                <img id="productImage" class="rounded object-cover" src="./img/star.svg" alt="">
             </div>
 
             <div class="flex flex-col flex-wrap items-start w-full">
