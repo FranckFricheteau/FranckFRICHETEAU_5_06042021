@@ -148,7 +148,7 @@ function sendOrder() {
             localStorage.removeItem('shoppingCart')
             window.location.href = `${window.location.origin}/orderStatus.html?orderId=${json.orderId}`
         })
-        .catch((err) => {
-            alert(err, e)
+        .catch((e) => {
+            alert("Votre commande n'a pas été prise en compte, veuillez renouveler votre opération s'il vous plaît")
         })
 }
