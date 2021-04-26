@@ -1,5 +1,6 @@
 //Fonction principale, appelée automatiquement au chargement de la page
-;(async () => {
+
+(async() => {
     const products = await getProducts()
     hydratePage(products)
 })()
@@ -8,10 +9,8 @@ async function getProducts() {
     return fetch(`${apiUrl}/api/teddies`)
         .then((httpBodyResponse) => httpBodyResponse.json())
         .then((products) => products)
-        .catch((error) => {
-            alert(
-                "La connexion au serveur n'a pas pu être effectuée. Veuillez réessayer ultérieurement"
-            )
+        .catch((e) => {
+            alert("Connexion au serveur impossible, veuillez réessayer ultérieurement");
         })
 }
 
@@ -40,7 +39,5 @@ function displayProduct(product) {
 
     //afficher le modèle
     document.getElementById('productsList').appendChild(cloneElt)
-
-
 
 }
