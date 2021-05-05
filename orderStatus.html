@@ -5,38 +5,44 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Confirmation de votre commande</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/orinoco.css">
 
     <script src="./js/config.js" defer></script>
     <script src="./js/status.js" defer></script>
-    <!-- jQuery first -->
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
-    <div class="container mx-auto px-4 py-8">
+    <div class="container">
         <!-- HEADER -->
         <header class="flex justify-between items-center rounded-lg w-full bg-oniPink py-2 px-6">
-            <a href="index.html"><img class="h-20 bg-oniPink" src="./img/logo.png" alt="Orinico"></a>
+            <a href="#"><img class="h-20 bg-oniPink" src="./img/logo.png" alt="Orinico"></a>
             <h2 class="text-lg font-bold mb-2">Confirmation de votre commande </h2>
-            <nav class="flex">
-                <ul class="list-none font-semibold">
+            <nav class="navbar navbar-expand bg-light">
+                <ul class="navbar-nav">
                     <li>
-                        <a class="px-4 py-4" href="./cart.html">Panier</a>
+                        <a class="navbar-brand" href="./cart.html">Panier</a>
                     </li>
                 </ul>
             </nav>
         </header>
 
         <!-- HEADER -->
-
-        <main class="w-full bg-oniPink rounded-lg my-4 py-16 flex justify-center flex-col">
-            <p class="text-center text-4xl font-bold mb-4">Félicitations ! Votre commande à bien été comptabilisée par notre site !</p>
-            <p class="text-center text-xl mb-4">Identifiant de votre commande : <span class="font-bold" id="commandId"></span></p>
-            <a class="inline-block uppercase text-center mx-auto bg-indigo-600 py-2 px-4 font-semibold rounded text-white" href="index.html">Retourner à l'accueil</a>
-        </main>
+        <div class="bg-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <main class="w-full bg-oniPink rounded-lg my-4 py-16 flex justify-center flex-col">
+                            <p class="text-center text-4xl font-bold mb-4">Félicitations ! Merci de votre achat !</p>
+                            <p class="text-center text-xl mb-4">Identifiant de votre commande : <span class="font-bold" id="commandId"></span></p>
+                            <a class="inline-block uppercase text-center mx-auto bg-indigo-600 py-2 px-4 font-semibold rounded text-white" href="index.html">Retourner à l'accueil</a>
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
